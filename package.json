@@ -1,0 +1,9 @@
+{
+  "name": "blackjack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts":{
+    "start": "yarn add webpack webpack-dev-server webpack-cli --dev"
+  }
+}
