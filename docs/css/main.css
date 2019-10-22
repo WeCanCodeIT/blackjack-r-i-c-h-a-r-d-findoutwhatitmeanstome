@@ -6,7 +6,7 @@
 
 }
 body{
- background-image: url("./public/images/casino_background.jpg");
+ background-image: url("./casino_background.jpg");
 }
 .wrapper{
     max-width: 80rem;
