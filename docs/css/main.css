@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=CA+Viva+Las+Vegas|IBM+Plex+Mono|Raleway&display=swap');
+
+.html{
+    color:white;
+    font-size: 20px/1;
+
+}
+body{
+ background-image: url("./public/images/casino_background.jpg");
+}
+.wrapper{
+    max-width: 80rem;
+    margin: auto;
+}
+.header__title{
+    font-family: 'CA Viva Las Vegas','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-size: 40px;
+    color: white;
+}
+/* ---------NAVIGATION--------- */
+
+/* ---------GAME TABLE--------- */
+.game__table{
+    display: block;
+    size: 400px, 400px;
+    background-color: rgb(95, 141, 25);
+    max-width: 35.5rem;
+    height: 26rem;
+    margin:auto;
+    padding: .5rem;   
+    border: 7px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    text-align: center;   
+}
+.game__content{
+    text-align: center;
+    font-size: 24px;
+    font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+    height: inherit;
+}
+.game__header{
+    text-align: center;
+    font-size: 1rem;
+    font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+    height: inherit;
+}
+
+/* -------PLAYER------- */
+.player__container{
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+    border: 3px solid black;
+    background-color: rgb(255, 255, 255);
+    width: 13rem;
+    height: 6rem;
+    margin: auto;
+}
+.player_name{
+    color: rgb(247, 17, 9);
+}
+
+/* ------PLAYING CARD-------- */
+.playing-card{
+    display: flex;
+    height: 10rem;
+    width: 7rem;
+    background-color: #ffffff;
+    border: 1px black solid;
+    border-radius: 6px;
+}
+.card-inner-line{
+    display: flex;
+    height: 80%;
+    width: 70%;
+    border: 3px solid black;
+    border-radius: 5px;
+    margin: auto;
+}
+.card-value-display{
+    margin: auto;
+    font-size: 2.5rem;
+}
