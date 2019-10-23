@@ -45,9 +45,19 @@ body{
     font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
     height: inherit;
 }
+.dealer{
+    display: flex;
+    min-height: 8rem;
+}
+.interact{
+    min-height: 3rem;
+}
+.user{
+    display: flex;
+}
 
-/* -------PLAYER------- */
-.player__container{
+/* -------CONSOLE------- */
+.console{
     text-align: center;
     font-size: 1.2rem;
     color: rgb(0, 0, 0);
