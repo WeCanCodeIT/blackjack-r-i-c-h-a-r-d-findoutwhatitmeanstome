@@ -25,5 +25,8 @@ module.exports = {
         cardsArray.forEach(card => {
             containerElement.append(this.generateCard(card));
         })
-    }
-}
+    },
+    renderDealerCard(dealerCard, containerElement) {
+        containerElement.append(this.generateCard(dealerCard))
+        }
+};

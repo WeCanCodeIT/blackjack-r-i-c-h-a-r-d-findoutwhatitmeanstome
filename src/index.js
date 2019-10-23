@@ -15,6 +15,7 @@ playerName.innerHTML = "Richard, Bitch";
 
 // SETUP GAME -----------
 singleDeckGame.deal();
+console.log(singleDeckGame.getDealerCardUp());
 
 const dealerHand = singleDeckGame.getDealerHand();
 const userHand = singleDeckGame.getUserHand();
@@ -23,8 +24,7 @@ dealerScore.textContent = singleDeckGame.evaluateDealer();
 playerScore.textContent = singleDeckGame.evaluateUser();
 
 Dom.renderCards(userHand.getCards(), document.querySelector(".user"));
-Dom.renderCards(dealerHand.getCards(), document.querySelector(".dealer"));
-
+Dom.renderDealerCard(singleDeckGame.getDealerCardUp(), document.querySelector(".dealer"));
 
 
 // BUTTONS -------------------
