@@ -1,5 +1,5 @@
 module.exports = {
-
+    
     generateCard(card) {
         const playingCard = document.createElement("section");
         playingCard.classList.add("playing-card");
