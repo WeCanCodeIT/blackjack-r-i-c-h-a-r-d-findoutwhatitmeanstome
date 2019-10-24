@@ -50,6 +50,9 @@ body{
     min-height: 8rem;
 }
 .interact{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
     min-height: 3rem;
 }
 .user{
