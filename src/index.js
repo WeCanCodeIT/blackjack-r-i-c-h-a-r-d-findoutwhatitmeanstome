@@ -4,76 +4,68 @@ const {
 const Dom = require("./utils/Dom");
 
 
+
+
 let playerName = document.getElementById("player_name");
 let dealerScore = document.querySelector(".dealer-score");
 let playerScore = document.querySelector(".player-score");
 let hitButton = document.querySelector(".hit");
-let newGameButton = document.querySelector(".new")
-let gameStatus = document.querySelector(".status");
-playerName.innerHTML = "Richard, Bitch";
-// playerName.innerHTML = prompt("What's your name you sick piece of shit?", "Ivana Lose")
+let standButton = document.querySelector(".stand");
+let newGameButton = document.querySelector(".new");
+    playerName.innerHTML = "Richard, Bitch";
 
+    hitButton.disabled = true;
+    standButton.disabled = true;
 
-// SETUP GAME -----------
-singleDeckGame.deal();
-console.log(singleDeckGame.getDealerCardUp());
+let dealerHand 
+let userHand 
 
-const dealerHand = singleDeckGame.getDealerHand();
-const userHand = singleDeckGame.getUserHand();
+// dealerScore.textContent = singleDeckGame.evaluateDealer();
+// playerScore.textContent = singleDeckGame.evaluateUser();
 
-dealerScore.textContent = singleDeckGame.evaluateDealer();
-playerScore.textContent = singleDeckGame.evaluateUser();
-
-Dom.renderCards(userHand.getCards(), document.querySelector(".user"));
-Dom.renderCards(dealerHand.getCards(), document.querySelector(".dealer"));
+// Dom.renderCards(userHand.getCards(), document.querySelector(".user"));
+// Dom.renderCards(dealerHand.getCards(), document.querySelector(".dealer"));
 
 
 // BUTTONS -------------------
 
 hitButton.addEventListener("click", () => {
-    
-    singleDeckGame.hitUser();
 
-    document.querySelector(".user").innerHTML = "";
-    Dom.renderCards(userHand.getCards(), document.querySelector(".user"));
-    
-    playerScore.innerHTML = singleDeckGame.evaluateUser();
+    userHits();
+        if (singleDeckGame.isUserBust()) {
 
-    if (singleDeckGame.isUserBust()){
-        singleDeckGame.isUserPlaying = false;
+            hitButton.disabled = true;
+            standButton.disabled = true;
+            newGameButton.disabled = false;
+
+            singleDeckGame.outcome();
             }
-        else {
-            singleDeckGame.settleDealerHand();
-            // singleDeckGame.hitDealer();
-            // document.querySelector(".dealer").innerHTML = "";
-            // Dom.renderCards(dealerHand.getCards(), document.querySelector(".dealer"));
-            // dealerScore.innerHTML = singleDeckGame.evaluateDealer();
-            }
-        }
+});
+standButton.addEventListener("click", () =>{
 
-    if (singleDeckGame.isDealerBust()) {
-            
-            singleDeckGame.userWin();
-            gameStatus.innerHTML = "You Win!";
-            }
-    });
+    singleDeckGame.standUser();
 
-    if(singleDeckGame.isUserPlaying === false && singleDeckGame.isDealerPlaying === false){
-
+    while (singleDeckGame.isDealerPlaying()) {
+        singleDeckGame.settleDealerHand();
+        dealerHits();
     }
+    singleDeckGame.outcome();
+    
+})
+
+    
 
 
 newGameButton.addEventListener("click", () => {
-    
+    newGameButton.disabled = true;
+    hitButton.disabled = false;
+    standButton.disabled = false;
 
-    
-    singleDeckGame.deal();
-    singleDeckGame.isUserPlaying = true;
-    singleDeckGame.isDealerPlaying = true;
-    console.log(singleDeckGame.getDealerCardUp());
+    singleDeckGame.resetPlayers();
+    singleDeckGame.deal();    
 
-    const dealerHand = singleDeckGame.getDealerHand();
-    const userHand = singleDeckGame.getUserHand();
+    dealerHand = singleDeckGame.getDealerHand();
+    userHand = singleDeckGame.getUserHand();
 
     dealerScore.textContent = singleDeckGame.evaluateDealer();
     playerScore.textContent = singleDeckGame.evaluateUser();
@@ -83,15 +75,15 @@ newGameButton.addEventListener("click", () => {
 
     Dom.renderCards(userHand.getCards(), document.querySelector(".user"));
     Dom.renderCards(dealerHand.getCards(), document.querySelector(".dealer"));
+});
+function userHits() {
+    singleDeckGame.hitUser();
+    document.querySelector(".user").innerHTML = "";
+    Dom.renderCards(userHand.getCards(), document.querySelector(".user"));
+    playerScore.innerHTML = singleDeckGame.evaluateUser();
+};
+function dealerHits() {
+    document.querySelector(".dealer").innerHTML = "";
+    Dom.renderCards(dealerHand.getCards(), document.querySelector(".dealer"));
+    dealerScore.innerHTML = singleDeckGame.evaluateDealer();
 }
-
-
-
-
-
-
-
-    
-
-
-
