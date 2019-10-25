@@ -8,28 +8,44 @@
     <title>FAIR GAMES INC. BlackJack</title>
 </head>
 <body>
-        <body>
-                <div class="wrapper">
-             
-                    <section class="game__table">
+    <header>
+        <nav class="nav-bar">
+
+        </nav>
+    </header>
+       
+    <div class="wrapper">
+        <div class ="game__container">
+            <section class="console">
+                <section class="dealer-console">
+                    <h2>Dealer Total:</h2> <span class="dealer-score"></span><br>
+                </section>
+                <section class="status-console">
+                    
+                    <span class="status"></span>
+                </section>
+                <section class="player-console">
+
+                    <span id="player_name" class="player_name"></span>
                         
-                        <section class="dealer"></section>
-                        <section class="interact">
-                            <button class="hit">HIT ME</button>
-                            <button class="stand">STAND</button>
-                            <button class="new">New Game</button>
-                        </section>
-                        <section class="user"></section>
-                            
-            
-                    </section> 
-                    <div class="console">
-                        <span id="player_name" class="player_name"></span><br>
-                        Dealer Total: <span class="dealer-score"></span><br>
-                        Your Total: <span class="player-score"></span><br>
-                        </span>
-                        <span class="status">----</span>
-                    </div>
+                        <h2>Your Total: </h2><span class="player-score">0</span>
+                    </span>
+                </section>
+            </section>
+        
+            <section class="game__table">
+            <section class="dealer"></section>
+            <section class="interact">
+                <button class="stand"><span>STAND</span></button>
+                <button class="hit"><span>HIT</span></button>
+                <button class="new"><span>NEW GAME</span></button>
+            </section>
+            <section class="user"></section>
+                
+
+        </section> 
+        </div>
+    </div>
     
     <script src="main.js"></script>
     <script src=""></script>

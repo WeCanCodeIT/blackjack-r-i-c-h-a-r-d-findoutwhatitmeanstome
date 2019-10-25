@@ -1,5 +1,5 @@
 const {
-    default: {singleDeckGame}
+    default: { singleDeckGame }
 } = require("blackjack-dealer-logic");
 const Dom = require("./utils/Dom");
 
@@ -12,6 +12,7 @@ let playerScore = document.querySelector(".player-score");
 let hitButton = document.querySelector(".hit");
 let standButton = document.querySelector(".stand");
 let newGameButton = document.querySelector(".new");
+let gameStatus = document.querySelector(".status");
     playerName.innerHTML = "Richard, Bitch";
 
     hitButton.disabled = true;
@@ -20,11 +21,6 @@ let newGameButton = document.querySelector(".new");
 let dealerHand 
 let userHand 
 
-// dealerScore.textContent = singleDeckGame.evaluateDealer();
-// playerScore.textContent = singleDeckGame.evaluateUser();
-
-// Dom.renderCards(userHand.getCards(), document.querySelector(".user"));
-// Dom.renderCards(dealerHand.getCards(), document.querySelector(".dealer"));
 
 
 // BUTTONS -------------------
@@ -34,23 +30,20 @@ hitButton.addEventListener("click", () => {
     userHits();
         if (singleDeckGame.isUserBust()) {
 
-            hitButton.disabled = true;
-            standButton.disabled = true;
-            newGameButton.disabled = false;
-
-            singleDeckGame.outcome();
+            endRound();
+            getWinner(singleDeckGame.outcome());
             }
 });
-standButton.addEventListener("click", () =>{
 
+
+standButton.addEventListener("click", () =>{
     singleDeckGame.standUser();
 
     while (singleDeckGame.isDealerPlaying()) {
         singleDeckGame.settleDealerHand();
         dealerHits();
-    }
-    singleDeckGame.outcome();
-    
+        }
+    getWinner(singleDeckGame.outcome());      
 })
 
     
@@ -60,6 +53,7 @@ newGameButton.addEventListener("click", () => {
     newGameButton.disabled = true;
     hitButton.disabled = false;
     standButton.disabled = false;
+    gameStatus.textContent = "";
 
     singleDeckGame.resetPlayers();
     singleDeckGame.deal();    
@@ -76,6 +70,37 @@ newGameButton.addEventListener("click", () => {
     Dom.renderCards(userHand.getCards(), document.querySelector(".user"));
     Dom.renderCards(dealerHand.getCards(), document.querySelector(".dealer"));
 });
+
+function endRound() {
+    hitButton.disabled = true;
+    standButton.disabled = true;
+    newGameButton.disabled = false;
+}
+
+function getWinner(outcome) {
+    switch (outcome) {
+        case 0:
+            hitButton.disabled = true;
+            standButton.disabled = true;
+            newGameButton.disabled = false;
+            gameStatus.textContent = "Dealer Wins!";
+
+            break;
+        case 1: 
+            hitButton.disabled = true;
+            standButton.disabled = true;
+            newGameButton.disabled = false;
+            gameStatus.textContent = "Draw!";
+
+            break;
+        case 2:
+            hitButton.disabled = true;
+            standButton.disabled = true;
+            newGameButton.disabled = false;
+            gameStatus.textContent = "You Win!";
+}   
+}
+
 function userHits() {
     singleDeckGame.hitUser();
     document.querySelector(".user").innerHTML = "";

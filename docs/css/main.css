@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=CA+Viva+Las+Vegas|IBM+Plex+Mono|Raleway&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Staatliches|CA+Viva+Las+Vegas|IBM+Plex+Mono|Raleway&display=swap');
 .html{
     color:white;
     font-size: 20px/1;
 
 }
 body{
- background-image: url("./casino_background.jpg");
+ background-image: url("./hotel-wallpaper-black.png");
+ font-family: 'Raleway';
 }
 .wrapper{
     max-width: 80rem;
@@ -18,60 +18,167 @@ body{
     font-size: 40px;
     color: white;
 }
-/* ---------NAVIGATION--------- */
 
+/* ===========BUTTON STYLE=============== */
+button{
+    cursor: pointer;
+    background-color: rgb(255, 255, 205);
+    border: 2px outset white;
+    border-radius: 3px;
+    font-family: Staatliches, Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2rem;
+    margin: auto;
+    width: 9rem;
+    transition-duration: .35s;
+}
+button:enabled:hover{
+    background-color: rgb(189, 0, 0);
+    border-style: inset;
+    transition-duration: .35s;
+    transition-timing-function: ease-out;
+}
+button:enabled:hover after{
+    transition-duration: .20s;
+}
+button:enabled:hover span{
+    color: rgb(255, 255, 255);
+    font-size: 1.6rem;
+    transition-duration: .8s;
+}
+button:disabled{
+    background-color: rgb(185, 185, 185);
+    border-style: inset;
+    color: rgb(94, 94, 94);
+    transition-timing-function: ease;
+}
+button:disabled:hover{
+    border-style: inset;
+}
+button:disabled span{
+    font-style: italic;
+}
+/* ---------NAVIGATION--------- */
+.nav-bar{
+    background-color: rgba(29, 29, 29, 0.705);
+    border: 3px outset white;
+    /* outline: 4px dashed gold; */
+    border-radius: 10px;
+    width: 80%;
+    height: 5rem;
+    top: 0;
+    position: sticky;
+    margin: auto;
+    margin-bottom: 2rem;
+    box-shadow: 7px 7px 10px rgb(39, 7, 7);
+}
 /* ---------GAME TABLE--------- */
+.game__container{
+    display: grid;
+    grid-auto-columns: 1fr 3fr 1fr;
+    grid-auto-rows: none;
+    grid-template-areas: 'info table info2';
+}
 .game__table{
+    grid-area: table;
     display: block;
-    size: 400px, 400px;
+    width: 100%;
     background-color: rgb(95, 141, 25);
+    background-image: url("./pool_table.png");
     max-width: 35.5rem;
     height: 26rem;
     margin:auto;
     padding: .5rem;   
-    border: 7px solid rgb(255, 255, 255);
-    border-radius: 20px;
+    outline: 7px solid rgb(248, 246, 227);
+    border: 5px solid rgb(4, 48, 8);
     text-align: center;   
 }
 .game__content{
+    grid-area: table;
     text-align: center;
     font-size: 24px;
     font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
     height: inherit;
 }
 .game__header{
+    grid-area: table;
     text-align: center;
     font-size: 1rem;
     font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
     height: inherit;
 }
 .dealer{
+    grid-area: table;
     display: flex;
-    min-height: 8rem;
+    height: 10rem;
 }
 .interact{
+    grid-area: table;
     display: flex;
     justify-content: space-evenly;
     padding: 1rem;
-    min-height: 3rem;
+    height: 4rem;
 }
 .user{
+    grid-area: table;
     display: flex;
+    height: 10rem;
 }
 
 /* -------CONSOLE------- */
 .console{
+    grid-area: info;
+    display: grid;
+    grid-template-areas: 'dealer'
+                        'console'
+                        'player';
     text-align: center;
     font-size: 1.2rem;
-    color: rgb(0, 0, 0);
-    border: 3px solid black;
-    background-color: rgb(255, 255, 255);
-    width: 13rem;
-    height: 6rem;
+    color: rgb(255, 255, 255);
+    /* border: 3px solid white; */
+    background-color: rgba(255, 255, 255, 0.39);
+    box-shadow: snow  0px 0px 15px;
+    height: 25rem;
+    width: 17rem;
+    margin: auto;
+    padding: .5rem;
+}
+.dealer-console{
+    grid-area: dealer;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.493);
+}
+.status-console{
+    grid-area: console;
+    display: flex;
+    text-align: center;
     margin: auto;
 }
+.player-console{
+    grid-area: player;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    background-color: rgba(0, 0, 0, 0.493);
+}
+.player-score{
+    grid-area: player;
+    display: flex;
+    background-color: white;
+    border: 2px black solid;
+    border-radius: 15x;
+    color: black;
+
+}
+
+
+.dealer_name{
+    grid-area: dealer;
+    
+}
 .player_name{
-    color: rgb(247, 17, 9);
+    grid-area: player;
+    
 }
 
 /* ------PLAYING CARD-------- */
@@ -82,6 +189,9 @@ body{
     background-color: #ffffff;
     border: 1px black solid;
     border-radius: 6px;
+    box-shadow: rgb(39, 7, 7) 4px 4px 10px;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 .card-inner-line{
     display: flex;
