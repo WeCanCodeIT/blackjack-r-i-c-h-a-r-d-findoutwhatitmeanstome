@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,47 +8,79 @@
     <link rel="stylesheet" href="./css/main.css">
     <title>FAIR GAMES INC. BlackJack</title>
 </head>
+
 <body>
     <header>
         <nav class="nav-bar">
-
+            <section class="nav-title">Let's Play Blackjack<span>♧</span></section>
         </nav>
     </header>
-       
+
     <div class="wrapper">
-        <div class ="game__container">
-            <section class="console">
-                <section class="dealer-console">
-                    <h2>Dealer Total:</h2> <span class="dealer-score"></span><br>
-                </section>
-                <section class="status-console">
-                    
+
+
+            <section class="status-main">
                     <span class="status"></span>
                 </section>
-                <section class="player-console">
+        <div class="game__container">
+            <section class="new-container">
 
-                    <span id="player_name" class="player_name"></span>
-                        
-                        <h2>Your Total: </h2><span class="player-score">0</span>
+                <section class="counter-container">
+                <span class="counter-title">Total Chips</span>
+                <section class="token counter">
+                    <span class="token-value-container">
+                        <span id="counter" class="token-value counter"></span>
                     </span>
                 </section>
-            </section>
-        
-            <section class="game__table">
-            <section class="dealer"></section>
-            <section class="interact">
-                <button class="stand"><span>STAND</span></button>
-                <button class="hit"><span>HIT</span></button>
-                <button class="new"><span>NEW GAME</span></button>
-            </section>
-            <section class="user"></section>
-                
+                </section>
 
-        </section> 
+                <button class="new">New Round</button>
+
+            </section>
+
+            <section class="console">
+
+                <section class="dealer-console">
+                    <span id="dealer-name" class="dealer-name">Dealer</span>
+                    <section class="score-title">Dealer Total:</section>
+                    <div class="dealer-score-container">
+                        <span class="dealer-score">0</span>
+                    </div>
+                </section>
+
+
+
+                <section class="player-console">
+                    <span id="player-name" class="player-name"></span>
+                    <section class="score-title">Your Total: </section>
+                    <div class="player-score-container">
+                        <span class="player-score">0</span>
+                    </div>
+                    </span>
+                </section>
+
+            </section>
+
+            <section class="game__table">
+
+
+                <section class="dealer">
+                </section>
+                <section class="interact">
+                    <button class="hit"><span>HIT</span></button>
+                    <button class="stand"><span>STAND</span></button>
+                    <button class="double"><span>DOUBLE</span></button>
+                </section>
+                <section class="user"></section>
+
+
+            </section>
         </div>
+        
     </div>
-    
+
     <script src="main.js"></script>
     <script src=""></script>
 </body>
+
 </html>
