@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --mode development --content-base docs/ --open --hot"
+    "start": "webpack-dev-server --mode development --content-base docs/ --open --hot",
+    "build": "webpack --mode production --content-base docs/ --output-path docs/"
   },
   "devDependencies": {
     "webpack": "^4.41.2",
